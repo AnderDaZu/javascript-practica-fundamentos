@@ -22,3 +22,20 @@ if (typeof cadena === 'string' && cadena.trim().length !== 0) {
 } else {
     console.log(`No ingresaste una cadena de texto, ingresaste un ${typeof cadena}.`);
 }
+
+console.clear();
+
+const recortarTexto = (texto, longitud) =>
+    (!texto || typeof texto !== 'string')
+        ? (typeof texto !== 'string')
+            ? console.warn('No ingresaste texto, ingresaste un %s', typeof texto)
+            : console.warn('No ingresaste un texto')
+        : (typeof longitud !== 'number' || longitud <= 0)
+            ? console.warn('Ingrese una longitud de tipo numero o un numero mayor a 0')
+            : console.log('Texto "%s" recortado a %d caracteres: %s', texto, longitud, texto.slice(0, longitud));
+
+recortarTexto();
+recortarTexto('Hola');
+recortarTexto([], 0);
+recortarTexto('', 5);
+recortarTexto('Hola mundo', 4);

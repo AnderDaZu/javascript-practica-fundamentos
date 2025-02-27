@@ -18,3 +18,18 @@ if ( typeof texto === 'string' && texto.trim() !== '') {
 } else {
     console.log(`No ingresaste un texto, ingresaste un ${typeof texto}.`);
 }
+
+console.clear();
+
+const contarLongitudTexto = (texto) => 
+    (!texto || typeof texto !== 'string')
+        ? (typeof texto !== 'string')
+            ? console.warn('No ingresaste texto, ingresaste un %s', typeof texto)
+            : console.warn('No ingresaste un texto')
+        : console.log('La "longitud" de %s es de: %d', texto, texto.length);
+
+contarLongitudTexto();
+contarLongitudTexto({});
+contarLongitudTexto('');
+contarLongitudTexto(10);
+contarLongitudTexto('Hola mundo');

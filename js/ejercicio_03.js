@@ -19,3 +19,25 @@ if (typeof texto === 'string' && texto.trim().length !== 0) {
 } else {
     console.log(`No ingresaste una cadena de texto, ingresaste un ${typeof texto}.`);
 }
+
+const dividirTexto = (texto, separador) =>
+    (!texto || typeof texto !== 'string')
+        ? (typeof texto !== 'string')
+            ? console.warn('No ingresaste texto, ingresaste un %s', typeof texto)
+            : console.warn('No ingresaste un texto')
+        : (typeof separador !== 'string' || !texto.includes(separador))
+            ? (typeof separador !== 'string')
+                ? console.warn('Ingrese un separador de tipo texto')
+                : console.warn('Ingrese un separador disponible')
+            : console.info('Texto "%s" separado por "%s": ', texto, separador, texto.split(separador));
+
+console.clear();
+
+dividirTexto();
+dividirTexto('Hola');
+dividirTexto({}, 1);
+dividirTexto('');
+dividirTexto('Hola', {});
+dividirTexto('Hola', 5);
+dividirTexto('Hola mundo', 'z');
+dividirTexto('Hola mundo', ' ');
